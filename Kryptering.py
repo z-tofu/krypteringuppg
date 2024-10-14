@@ -1,7 +1,7 @@
 import string
 
 
-def encrypt(message, key):
+def encrypt(message, key): #funktion för att kryptera ett meddelande
     if not isinstance(key, int) or key <= 0 or key > 25:
         raise ValueError("Key must be an integer between 1 and 25")
 
@@ -17,7 +17,7 @@ def encrypt(message, key):
 
     return encrypted_message
 
-def decrypt(message, key):
+def decrypt(message, key): #funktion för att dekryptera meddelande
     if not isinstance(key, int) or key <= 0 or key > 25:
         raise ValueError("Key must be an integer between 1 and 25")
 
@@ -33,12 +33,12 @@ def decrypt(message, key):
 
     return decrypted_message
 
-def break_crypt(message):
+def break_crypt(message): #funktion för att cracka ett krypterat meddelande
     for key in range(1,26):
         possible_message = decrypt(message, key)
         print(f"Key {key}: {possible_message}")
 
-def get_key():
+def get_key():  #funktion för att få en valid nyckel
     while True:
         try:
             key = int(input("Input the key (an integer between 1 and 25):"))
@@ -49,12 +49,12 @@ def get_key():
         except ValueError:
             print("Please input a valid integer.")
 
-def get_message():
+def get_message(): #funktion för att få vilket meddelande användaren vill kryptera, dekryptera eller cracka
     return input("input the message: ")
 
-def action():
+def action(): #funktion för vad användaren av programmet vill göra
 
-    while True:
+    while True: #användaren kan välja vad hen vill göra t.ex. kryptera meddelande eller sluta programmet
         print('\nwhat would you like to do? ')
         choice = input("e: encrypt\nd: decrypt\nb: break\nq: quit\n>")
 
@@ -81,5 +81,5 @@ def action():
         else:
             print("invalid choice.")
 
-if __name__== "__main__":
+if __name__== "__main__": #kör programmet
     action()
