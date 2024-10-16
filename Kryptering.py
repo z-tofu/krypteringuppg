@@ -18,7 +18,7 @@ def encrypt(message, key): #funktion för att kryptera ett meddelande
     return encrypted_message
 
 def decrypt(message, key): #funktion för att dekryptera meddelande
-    if not isinstance(key, int) or key <= 0 or key > 25:
+    if not isinstance(key, int) or key <= 0 or key > 25: #ser till att key är en giltig key
         raise ValueError("Key must be an integer between 1 and 25")
 
     decrypted_message = ""
